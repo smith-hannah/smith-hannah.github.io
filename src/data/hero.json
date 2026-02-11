@@ -1,0 +1,25 @@
+{
+  "greeting": "Hello, I'm",
+  "tagline": "Product Development Scientist @ Dove",
+  "description": "Welcome to my portfolio! Here, you'll find everything from my experience, launches I have been a part of, and even a commercial :)",
+  "socialLinks": [
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/yourprofile"
+    },
+    {
+      "platform": "email",
+      "label": "Email",
+      "href": "mailto:your.email@example.com"
+    },
+    {
+      "platform": "tiktok",
+      "label": "TikTok",
+      "href": "https://tiktok.com/@yourhandle"
+    }
+  ],
+  "image": {
+    "src": "/profilePic.jpeg"
+  }
+}
