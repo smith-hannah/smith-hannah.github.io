@@ -1,0 +1,74 @@
+{
+  "title": "Experience",
+  "subtitle": "A quick overview of roles and impact",
+  "roles": [
+    {
+      "company": "Unilever",
+      "title": "Product Development Specialist",
+      "location": "Trumbull, CT",
+      "dateRange": "June 2025 – Present",
+      "initials": "ULVR",
+      "logo": "/unilever-logo.png",
+      "achievements": [
+        "Technical project lead for Dove Men+Care deodorant innovation launches."
+      ],
+      "productsLaunched": ["DMC Mood-Boosting Deodorant", "BEASTMODE"]
+    },
+    {
+      "company": "Unilever",
+      "title": "Associate Scientist + Process Engineer",
+      "location": "Trumbull, CT",
+      "dateRange": "July 2023 – June 2025",
+      "initials": "ULVR",
+      "logo": "/unilever-logo.png",
+      "achievements": [
+        "Work stream lead and technical project lead for Dove and Dove Men + Care skin cleansing launches."
+      ],
+      "productsLaunched": ["Women's Wellness Colection", "Premium Body Wash", "Milk & Oats Collection"]
+    },
+    {
+      "company": "Unilever",
+      "title": "Health + Wellbeing Intern",
+      "location": "Trumbull, CT",
+      "dateRange": "October 2022 – May 2023",
+      "initials": "ULVR",
+      "logo": "/unilever-logo.png",
+      "achievements": [
+        "Implemented a comprehensive database site for Unilever's potential health and well-being ingredients, including clinical studies, recommended doses, and warnings.",
+        "Collaborated with cross-functional teams to ensure that the database site was user-friendly and met the needs of key stakeholders.",
+        "Provided ongoing support and maintenance to ensure that the database site continued to meet the evolving needs of Unilever's R&D team."
+      ],
+      "productsLaunched": []
+    },
+    {
+      "company": "Unilever",
+      "title": "R&D Product Development Intern",
+      "location": "Trumbull, CT",
+      "dateRange": "May 2022 – August 2022",
+      "initials": "ULVR",
+      "logo": "/unilever-logo.png",
+      "achievements": [
+        "Generated a predictive model through JMP to predict clinical testing results from lab metrics.",
+        "Created Dove Body wash prototypes to be used for deposition testing and corneosurfametry along with carrying out initial pH and rheometer measurements.",
+        "Improved current methodologies to account for using different formulations in one study.",
+        "Provided the team with new insights on how to strength our claims against our top competitors."
+      ],
+      "productsLaunched": []
+    },
+    {
+      "company": "Unilever",
+      "title": "R&D Science + Technology Intern",
+      "location": "Trumbull, CT",
+      "dateRange": "May 2021 – August 2021",
+      "initials": "ULVR",
+      "logo": "/unilever-logo.png",
+      "achievements": [
+        "Leveraging in silico analysis of internal/published skin aging transcriptomic datasets to generate novel insights to support our skin rejuvenation program.",
+        "Generated hypotheses from external data using in silico bioinformatics tools and draft reports.",
+        "Gene expression comparison of external and internal data.",
+        "Presented key findings/insights to project manager and team."
+      ],
+      "productsLaunched": []
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import heroData from '../data/hero.json';
 import siteData from '../data/site.json';
 
@@ -43,7 +44,7 @@ const { name } = siteData;
     </div>
     
     <div class="hero-image">
-      <img src={image.src} alt={name} />
+      <Image src={image.src} alt={name} width={400} height={400} />
     </div>
   </div>
 </section>
