@@ -2,11 +2,14 @@
   "primary": "#F6B1C3",
   "background": {
     "main": "#FAFAFA",
-    "secondary": "#F3E8E2"
+    "secondary": "#F3E8E2",
+    "white": "#FFFFFF"
   },
   "text": {
     "primary": "#2B2B2B",
-    "secondary": "#C9C9CF"
+    "secondary": "#C9C9CF",
+    "tertiary": "#6B6B6B",
+    "white": "#FFFFFF"
   },
   "accent": "#C9A569"
 }
