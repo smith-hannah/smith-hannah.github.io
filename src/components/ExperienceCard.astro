@@ -1,0 +1,249 @@
+---
+interface Props {
+  company: string;
+  title: string;
+  location: string;
+  dateRange: string;
+  logo?: string;
+  achievements: string[];
+  productsLaunched: string[];
+}
+
+const { company, title, location, dateRange, logo, achievements, productsLaunched } = Astro.props;
+---
+
+<article class="experience-card">
+  <div class="timeline-accent">
+    <div class="timeline-dot"></div>
+  </div>
+  
+  <div class="card-content">
+    <div class="card-header">
+      <div class="company-badge" aria-label={`${company} logo`}>
+        {logo ? (
+          <img src={logo} alt={`${company} logo`} class="company-logo" />
+        ) : null}
+      </div>
+      
+      <div class="header-info">
+        <h3 class="job-title">{title}</h3>
+        <p class="company-details">{company} · {location}</p>
+      </div>
+      
+      <div class="date-range">
+        {dateRange}
+      </div>
+    </div>
+    
+    <ul class="achievements">
+      {achievements.map((achievement) => (
+        <li>{achievement}</li>
+      ))}
+    </ul>
+    
+    <div class="tech-stack">
+      {productsLaunched.map((product) => (
+        <span class="tech-badge">{product}</span>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .experience-card {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-accent {
+    position: relative;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary), #f8d1dc);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary);
+    border: 3px solid var(--bg-secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(246, 177, 195, 0.2);
+  }
+
+  .card-content {
+    flex: 1;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-content:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+  }
+
+  .company-badge {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary) 0%, #f8d1dc 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .company-logo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .header-info {
+    min-width: 0;
+  }
+
+  .job-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+
+  .company-details {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .date-range {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #8B8B8B;
+    white-space: nowrap;
+  }
+
+  .achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .achievements li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .achievements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  .achievements li:last-child {
+    margin-bottom: 0;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+  .tech-badge:hover {
+    background-color: #f8d1dc;
+  }
+
+  @media (max-width: 768px) {
+    .experience-card {
+      gap: 1rem;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-header {
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+    }
+
+    .date-range {
+      grid-column: 2;
+      margin-top: 0.25rem;
+      white-space: normal;
+    }
+
+    .company-badge {
+      width: 48px;
+      height: 48px;
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+    }
+
+    .company-details {
+      font-size: 0.85rem;
+    }
+
+    .achievements li {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-accent {
+      width: 3px;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-width: 2px;
+    }
+  }
+</style>

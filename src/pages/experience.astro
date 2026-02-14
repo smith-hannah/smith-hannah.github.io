@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+import experienceData from '../data/experience.json';
+
+const { title, subtitle, roles } = experienceData;
+---
+
+<Layout title="Experience">
+  <Navbar />
+  
+  <main class="experience-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">{title}</h1>
+        <p class="page-subtitle">{subtitle}</p>
+      </header>
+
+      <div class="experience-list">
+        {roles.map((role) => (
+          <ExperienceCard
+            company={role.company}
+            title={role.title}
+            location={role.location}
+            dateRange={role.dateRange}
+            logo={role.logo}
+            achievements={role.achievements}
+            productsLaunched={role.productsLaunched}
+          />
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .experience-page {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    padding-top: 100px;
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .experience-list {
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .experience-page {
+      padding-top: 80px;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+  }
+</style>
