@@ -1,5 +1,6 @@
 ---
 import siteData from '../data/site.json';
+import colors from '../data/colors.json';
 
 interface Props {
 	title?: string;
@@ -17,15 +18,38 @@ const pageTitle = title === siteData.title ? title : `${title} | ${siteData.name
 		<meta name="viewport" content="width=device-width" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/x-icon" href="/soap.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" />
+		</noscript>
 		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
+
+<style define:vars={{
+	primary: colors.primary,
+	accent: colors.accent,
+	bgMain: colors.background.main,
+	bgSecondary: colors.background.secondary,
+	textPrimary: colors.text.primary,
+	textSecondary: colors.text.secondary
+}} is:global>
+	:root {
+		--primary: var(--primary);
+		--accent: var(--accent);
+		--bg-main: var(--bgMain);
+		--bg-secondary: var(--bgSecondary);
+		--text-primary: var(--textPrimary);
+		--text-secondary: var(--textSecondary);
+	}
+</style>
 
 <style is:global>
 	* {
