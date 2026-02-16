@@ -1,0 +1,28 @@
+{
+  "title": "Projects",
+  "subtitle": "Product development and innovation portfolio",
+  "categories": ["All", "Body Wash", "Deodorant"],
+  "projects": [
+    {
+      "title": "Premium Body Wash",
+      "description": "Women's Premium",
+      "image": "/projects/premiumBodyWash.png",
+      "category": "Body Wash",
+      "insightsUrl": "#"
+    },
+    {
+      "title": "BEASTMODE",
+      "description": "BESTMODE Collaboration with Marshawn Lynch",
+      "image": "/projects/beastmode.jpg",
+      "category": "Deodorant",
+      "insightsUrl": "#"
+    },
+    {
+      "title": "Oat + Milk Body Wash",
+      "description": "Soothing and moisturizing body wash",
+      "image": "/projects/oatAndMilk.png",
+      "category": "Body Wash",
+      "insightsUrl": "#"
+    }
+  ]
+}

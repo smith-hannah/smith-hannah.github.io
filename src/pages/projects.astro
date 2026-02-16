@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projectsData from '../data/projects.json';
+
+const { title, subtitle, categories, projects } = projectsData;
+---
+
+<Layout title="Projects">
+  <Navbar />
+  
+  <main class="projects-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">{title}</h1>
+        <p class="page-subtitle">{subtitle}</p>
+      </header>
+
+      <div class="filter-container">
+        <div class="filter-buttons">
+          {categories.map((category, index) => (
+            <button 
+              class={`filter-btn ${index === 0 ? 'active' : ''}`}
+              data-category={category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <div class="project-item" data-category={project.category}>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              category={project.category}
+              insightsUrl={project.insightsUrl}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .projects-page {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    padding-top: 100px;
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #6B6B6B;
+    margin: 0;
+  }
+
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.75rem 1.75rem;
+    border: 2px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(246, 177, 195, 0.3);
+  }
+
+  .filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(246, 177, 195, 0.3);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .project-item {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .project-item.hidden {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-page {
+      padding-top: 80px;
+    }
+
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .filter-buttons {
+      gap: 0.75rem;
+    }
+
+    .filter-btn {
+      font-size: 0.85rem;
+      padding: 0.65rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .page-header {
+      margin-bottom: 2rem;
+    }
+
+    .filter-container {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Filter functionality
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const selectedCategory = button.getAttribute('data-category');
+
+      // Update active button
+      filterButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Filter projects
+      projectItems.forEach((item) => {
+        const projectCategory = item.getAttribute('data-category');
+
+        if (selectedCategory === 'All' || projectCategory === selectedCategory) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

@@ -38,16 +38,22 @@ const pageTitle = title === siteData.title ? title : `${title} | ${siteData.name
 	accent: colors.accent,
 	bgMain: colors.background.main,
 	bgSecondary: colors.background.secondary,
+	bgWhite: colors.background.white,
 	textPrimary: colors.text.primary,
-	textSecondary: colors.text.secondary
+	textSecondary: colors.text.secondary,
+	textTertiary: colors.text.tertiary,
+	textWhite: colors.text.white
 }} is:global>
 	:root {
 		--primary: var(--primary);
 		--accent: var(--accent);
 		--bg-main: var(--bgMain);
 		--bg-secondary: var(--bgSecondary);
+		--bg-white: var(--bgWhite);
 		--text-primary: var(--textPrimary);
 		--text-secondary: var(--textSecondary);
+		--text-tertiary: var(--textTertiary);
+		--text-white: var(--textWhite);
 	}
 </style>
 
